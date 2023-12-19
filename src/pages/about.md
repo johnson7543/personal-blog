@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-# Johnson YuKai Wang
+## Johnson YuKai Wang
 
 ---
 
