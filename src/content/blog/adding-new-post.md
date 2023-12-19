@@ -3,8 +3,8 @@ author: Sat Naing
 pubDatetime: 2022-09-23T15:22:00Z
 title: Adding new posts in AstroPaper theme
 postSlug: adding-new-posts-in-astropaper-theme
-featured: true
-draft: false
+featured: false
+draft: true
 tags:
   - docs
 description:
@@ -64,7 +64,7 @@ title: The title of the post
 author: your name
 pubDatetime: 2022-09-21T05:17:19Z
 postSlug: the-title-of-the-post
-featured: true
+featured: false
 draft: false
 tags:
   - some

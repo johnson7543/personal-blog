@@ -13,7 +13,7 @@ import { SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
 
-const sortedPosts = getSortedPosts(posts);
+const sortedPosts = await getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -23,7 +23,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1 class="mr-2">Mingalaba</h1>
+      <h1 class="mr-2">Hello World!</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -41,12 +41,16 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I'm Johnson, a dedicated Software Engineer with over three years of experience, focusing on Java and Go. 
+        Working at DBS Bank with teams in Singapore and India now. 
       </p>
       <p>
+        Feel free to explore my CV for a detailed overview of my professional journey and achievements over the past few years.
+      </p>
+      <p>
+        Read the blog posts or check my socai media for more info.
+      </p>
+      <!-- <p>
         Read the blog posts or check
         <LinkButton
           className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
@@ -54,7 +58,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         >
           README
         </LinkButton> for more info.
-      </p>
+      </p> -->
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
