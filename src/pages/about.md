@@ -5,36 +5,34 @@ title: "About"
 
 ## Johnson YuKai Wang
 
----
+### Skills Summary
 
-## Skills Summary
-
-### Languages
+#### Languages
 
 - Familiar: Java, Go
 - Experienced: Python, C++, Typescript
 
-### Frameworks
+#### Frameworks
 
 - Spring Boot, Angular
 
-### Databases
+#### Databases
 
 - MySQL, PostgreSQL, MongoDB
 
-### Tools
+#### Tools
 
 - Git, Docker, Kubernetes, CircleCI
 
-### Cloud Platforms
+#### Cloud Platforms
 
 - AWS, GCP, Azure, Heroku
 
 ---
 
-## Professional Experience
+### Professional Experience
 
-### [DBS Bank](https://www.dbs.com/taiwan/en/default.page) - Taipei, Taiwan
+#### <a href="https://www.dbs.com/taiwan/en/default.page" target="_blank">DBS Bank</a> - Taipei, Taiwan
 
 **Software Engineer - Consumer Finance Tech Team** (July 2022 – Present)
 
@@ -45,7 +43,7 @@ title: "About"
 - Improved code quality by implementing JUnit 5 test cases, increasing test coverage from 0% to 80%.
 - Collaborated on investigating and resolving 20+ production incidents.
 
-### [Shoalter Technology Ltd.](https://www.shoalter.com/) - Taipei, Taiwan (Member of [HKTV](https://www.hktv.com.hk/eng/global/home.htm))
+#### <a href="https://www.shoalter.com/" target="_blank">Shoalter Technology Ltd.</a> - Taipei, Taiwan (Member of <a href="https://www.hktv.com.hk/index.html?lang=en_US" target="_blank">HKTV</a>)
 
 **Software Engineer - Backend/Android Team** (Sept 2021 – July 2022)
 
@@ -56,11 +54,11 @@ title: "About"
 
 ---
 
-## Education
+### Education
 
-### [Chung Yuan Christian University](https://www.cycu.edu.tw/eng/) - Sept 2017 - June 2021
+#### <a href="https://www.cycu.edu.tw/eng/" target="_blank">Chung Yuan Christian University</a> - Sept 2017 - June 2021
 
-#### Bachelor of Computer Science
+##### Bachelor of Computer Science
 
 - Courses: C++, Compilers, Data Structures, Algorithms, Operating Systems, Computer Network
-- Project: [CYCU Assistant](https://github.com/johnson7543/Team4-Project) (Python/MongoDB/Heroku/Dialogflow/Line Bot API)
+- Project: <a href="https://github.com/johnson7543/Team4-Project" target="_blank">CYCU Assistant</a> (Python/MongoDB/Heroku/Dialogflow/Line Bot API)
