@@ -10,8 +10,10 @@ export interface Props {
 const { href, className, ariaLabel, title, disabled = false } = Astro.props;
 ---
 
+<!-- add target="_blank" to open the link in a new tab -->
 <a
   href={disabled ? "#" : href}
+  target="_blank" 
   tabindex={disabled ? "-1" : "0"}
   class={`group inline-block ${className}`}
   aria-label={ariaLabel}
