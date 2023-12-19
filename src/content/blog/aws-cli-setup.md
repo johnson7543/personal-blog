@@ -35,7 +35,7 @@ Enter the requested information:
 
 you can find the access key ID from here faster:
 
-![AWS_CLI_setup_1](/src/assets/images/AWS_CLI_setup/001.png) ![AWS_CLI_setup_2](/src/assets/images/AWS_CLI_setup/002.png)
+![AWS_CLI_setup_1](../../assets/images/AWS_CLI_setup/001.png) ![AWS_CLI_setup_2](../../assets/images/AWS_CLI_setup/002.png)
 
 run this command to check the configuration you just entered
 

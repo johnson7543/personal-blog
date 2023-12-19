@@ -50,7 +50,7 @@ aws ec2 create-security-group --group-name circleci-tokyo --description "Circle 
 
 Next, we will be creating an ECS Cluster and the associated EC2 instance.
 
-![ECS create button](/src/assets/images/CircleCI_AWS_Golang/001.png)
+![ECS create button](../../assets/images/CircleCI_AWS_Golang/001.png)
 
 We will call the cluster circleci-cluster. We need to attach the circleci-tokyo security group that we created in earlier.
 
@@ -64,9 +64,9 @@ We will call the cluster circleci-cluster. We need to attach the circleci-tokyo 
 | Network                       | Use default VPC with all of its subnets  |
 | Security group                | circleci-tokyo (the one we just created) |
 
-![ECS create page 1](/src/assets/images/CircleCI_AWS_Golang/002.png)
+![ECS create page 1](../../assets/images/CircleCI_AWS_Golang/002.png)
 
-![ECS create page 2](/src/assets/images/CircleCI_AWS_Golang/003.png)
+![ECS create page 2](../../assets/images/CircleCI_AWS_Golang/003.png)
 
 ## ELB (Elastic Load Balancing)
 
@@ -77,7 +77,7 @@ We are creating an ELB because we eventually want to load balance requests acros
 
 Go to EC2 Console > Load Balancing > Load Balancers and click Create Load Balancer and select Application Load Balancer.
 
-![ELB create button](/src/assets/images/CircleCI_AWS_Golang/004.png)
+![ELB create button](../../assets/images/CircleCI_AWS_Golang/004.png)
 
 Name it circleci-elb and select internet-facing.
 
@@ -85,11 +85,11 @@ Under listeners, use the default listener with a HTTP protocol and port 80.
 
 Under Availability Zone, chose the VPC that was used during cluster creation and choose the subnets that you want.
 
-![ELB create page 1](/src/assets/images/CircleCI_AWS_Golang/005.png)
+![ELB create page 1](../../assets/images/CircleCI_AWS_Golang/005.png)
 
-![ELB create page 2](/src/assets/images/CircleCI_AWS_Golang/006.png)
+![ELB create page 2](../../assets/images/CircleCI_AWS_Golang/006.png)
 
-![ELB create page 3](/src/assets/images/CircleCI_AWS_Golang/007.png)
+![ELB create page 3](../../assets/images/CircleCI_AWS_Golang/007.png)
 
 please continue ref to below items to create new security group and target group
 
@@ -97,15 +97,15 @@ please continue ref to below items to create new security group and target group
 
 Create a new security group named circleci-elb-tokyo and open up port 80 and source 0.0.0.0/0 so anything from the outside world can access the ELB on port 80.
 
-![Security Group create page 1](/src/assets/images/CircleCI_AWS_Golang/008.png)
+![Security Group create page 1](../../assets/images/CircleCI_AWS_Golang/008.png)
 
 ### Configure Listeners and Routing
 
 Create a new target group name circleci-target-group with HTTP port 80.
 
-![Target Group create page 1](/src/assets/images/CircleCI_AWS_Golang/009.png)
+![Target Group create page 1](../../assets/images/CircleCI_AWS_Golang/009.png)
 
-![Target Group create page 2](/src/assets/images/CircleCI_AWS_Golang/010.png)
+![Target Group create page 2](../../assets/images/CircleCI_AWS_Golang/010.png)
 
 The circleci-elb-tokyo security group opens the circleci-elb load balancer’s port 80 to the world. Now, we need to make sure that the circleci-tokyo security group associated with the ECS instance allows traffic from the load balancer. To allow all ELB traffic to hit the container instance, run the following:
 
@@ -123,11 +123,11 @@ Any traffic from the ELB going to a container instance with the circleci-target-
 
 Create an image repository on ECR by following these instructions.
 
-![ECR create button](/src/assets/images/CircleCI_AWS_Golang/011.png)
+![ECR create button](../../assets/images/CircleCI_AWS_Golang/011.png)
 
 Name it circleci:
 
-![ECR create page 1](/src/assets/images/CircleCI_AWS_Golang/012.png)
+![ECR create page 1](../../assets/images/CircleCI_AWS_Golang/012.png)
 
 AWS accounts have unique ID’s. Change 418741758261 in the following command appropriately. After getting the repository name, we can now tag the image accordingly:
 
@@ -142,7 +142,7 @@ Retrieves an authentication token from AWS ECR for the specified region and uses
 aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 418741758261.dkr.ecr.ap-northeast-1.amazonaws.com
 ```
 
-![AWS docker login command](/src/assets/images/CircleCI_AWS_Golang/013.png)
+![AWS docker login command](../../assets/images/CircleCI_AWS_Golang/013.png)
 
 Then, push the image to the ECR repository:
 
@@ -150,7 +150,7 @@ Then, push the image to the ECR repository:
 docker push 418741758261.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
 ```
 
-![Docker push to ECR command](/src/assets/images/CircleCI_AWS_Golang/014.png)
+![Docker push to ECR command](../../assets/images/CircleCI_AWS_Golang/014.png)
 
 ## Task definition
 
@@ -213,7 +213,7 @@ The next step is to create a service that runs the circleci-service task definit
 
 To find the targetGroupArn that was created when creating the circleci-elb load balancer, go to EC2 > Target Groups and click the circleci-target-group. Copy it and substitute the one in targetGroupArn in the ecs-service.json file.
 
-![Target Group Arn](/src/assets/images/CircleCI_AWS_Golang/015.png)
+![Target Group Arn](../../assets/images/CircleCI_AWS_Golang/015.png)
 
 Now, create the circleci-service ECS service:
 
@@ -223,25 +223,25 @@ aws ecs create-service --cli-input-json file://ecs-service.json
 
 If you see below error, please create a role named ecsServiceRole for your account
 
-![Create service access error](/src/assets/images/CircleCI_AWS_Golang/016.png)
+![Create service access error](../../assets/images/CircleCI_AWS_Golang/016.png)
 
 IAM > Roles
 
-![ECS create service role 1](/src/assets/images/CircleCI_AWS_Golang/017.png)
+![ECS create service role 1](../../assets/images/CircleCI_AWS_Golang/017.png)
 
-![ECS create service role 2](/src/assets/images/CircleCI_AWS_Golang/018.png)
+![ECS create service role 2](../../assets/images/CircleCI_AWS_Golang/018.png)
 
-![ECS create service role 3](/src/assets/images/CircleCI_AWS_Golang/019.png)
+![ECS create service role 3](../../assets/images/CircleCI_AWS_Golang/019.png)
 
-![ECS create service role 4](/src/assets/images/CircleCI_AWS_Golang/020.png)
+![ECS create service role 4](../../assets/images/CircleCI_AWS_Golang/020.png)
 
 After setting up the role properly, the service can be created successfully
 
-![Create service successfully](/src/assets/images/CircleCI_AWS_Golang/021.png)
+![Create service successfully](../../assets/images/CircleCI_AWS_Golang/021.png)
 
 From the ECS console go to Clusters > circleci-cluster > circleci-service and view the Tasks tab. Confirm that the container is running:
 
-![ECS Cluster container running page](/src/assets/images/CircleCI_AWS_Golang/022.png)
+![ECS Cluster container running page](../../assets/images/CircleCI_AWS_Golang/022.png)
 
 ## Configuring CircleCI to deploy
 
@@ -259,7 +259,7 @@ Add the following environment variables:
 | AWS_RESOURCE_NAME_PREFIX | circleci             |
 | ENV_MONGO_DB_PASSWORD    | \<your db password\> |
 
-![CircleCI context environment variables page](/src/assets/images/CircleCI_AWS_Golang/023.png)
+![CircleCI context environment variables page](../../assets/images/CircleCI_AWS_Golang/023.png)
 
 Second, go to **project settings** and add AWS_ACCOUNT_ID into environment variables.
 
@@ -267,9 +267,9 @@ Second, go to **project settings** and add AWS_ACCOUNT_ID into environment varia
 | -------------- | ------------ |
 | AWS_ACCOUNT_ID | 418741758261 |
 
-![CircleCI environment variables page](/src/assets/images/CircleCI_AWS_Golang/024.png)
+![CircleCI environment variables page](../../assets/images/CircleCI_AWS_Golang/024.png)
 
-![Path of circleci config.yml](/src/assets/images/CircleCI_AWS_Golang/025.png)
+![Path of circleci config.yml](../../assets/images/CircleCI_AWS_Golang/025.png)
 
 create/update config.yml under .circleci folder
 
@@ -320,9 +320,9 @@ Please ref this doc to setup role_arn and role_session for aws-cli/setup
 
 IAM > Identity providers
 
-![Identity providers create button](/src/assets/images/CircleCI_AWS_Golang/026.png)
+![Identity providers create button](../../assets/images/CircleCI_AWS_Golang/026.png)
 
-![Identity providers create page](/src/assets/images/CircleCI_AWS_Golang/027.png)
+![Identity providers create page](../../assets/images/CircleCI_AWS_Golang/027.png)
 
 Enter `https://oidc.circleci.com/org/<your-organization-id>` for the Provider URL.
 
@@ -330,11 +330,11 @@ Enter `https://oidc.circleci.com/org/<your-organization-id>` for the Provider UR
 
 You can find the organization id in Organization Settings:
 
-![CircleCI organization id](/src/assets/images/CircleCI_AWS_Golang/028.png)
+![CircleCI organization id](../../assets/images/CircleCI_AWS_Golang/028.png)
 
 After the provider is created, assign required roles to the provider and name it Circleci_orbs_cli_ecr_ecs_role.
 
-![Assign access and name the role](/src/assets/images/CircleCI_AWS_Golang/029.png)
+![Assign access and name the role](../../assets/images/CircleCI_AWS_Golang/029.png)
 
 Add the following accesses to this role:
 
@@ -351,7 +351,7 @@ Make some changes to the project and commit to your GitHub.
 
 Check the CircleCi Dashboard and verify the deployment status.
 
-![CircleCi Dashboard](/src/assets/images/CircleCI_AWS_Golang/030.png)
+![CircleCi Dashboard](../../assets/images/CircleCI_AWS_Golang/030.png)
 
 Health check:
 
@@ -359,4 +359,4 @@ Health check:
 curl --location 'circleci-elb-tokyo-422160389.ap-northeast-1.elb.amazonaws.com/health'
 ```
 
-![Postman trigger health check](/src/assets/images/CircleCI_AWS_Golang/031.png)
+![Postman trigger health check](../../assets/images/CircleCI_AWS_Golang/031.png)
