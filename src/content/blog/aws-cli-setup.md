@@ -1,7 +1,7 @@
 ﻿---
 title: AWS CLI Setup
 author: Johnson Wang
-pubDatetime: 2023-12-19T09:21:21Z
+pubDatetime: 2023-12-18T09:21:21Z
 postSlug: aws-cli-setup
 featured: false
 draft: false
