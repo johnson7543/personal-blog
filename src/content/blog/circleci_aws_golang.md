@@ -16,13 +16,11 @@ description: How to use CircleCI to deploy go application to AWS.
 
 First things first, create and activate an AWS Account. Then, install and configure the AWS CLI on your local machine. We will use it to interact with AWS from the command line interface.
 
-ref to this aritcle for AWS CLI installation:
+You can ref to this article for AWS CLI installation: <a href="http://localhost:4321/posts/aws-cli-setup" target="_blank">AWS CLI Setup</a>
 
-[AWS CLI Setup](http://localhost:4321/posts/aws-cli-setup)
+In this demo, I'll utilize this <a href="https://github.com/johnson7543/ims.git" target="_blank">repository</a>.
 
----
-
-In this demo, I'll utilize the following repository: <https://github.com/johnson7543/ims.git>.
+If you want to use my repository for deployment, you need to prepare a MongoDB to connect.
 
 The AWS region of choice will be Asia Pacific (Tokyo) - **ap-northeast-1**
 
@@ -133,9 +131,22 @@ Name it circleci:
 
 AWS accounts have unique ID’s. Change 418741758261 in the following command appropriately. After getting the repository name, we can now tag the image accordingly:
 
+## Prepare the Go application
+
+### Skip to docker build part if you are using your own repo
+
 ```bash
 git clone https://github.com/johnson7543/ims.git
 cd ims
+
+# go to the .env file under the root path
+# update the MONGO_DB_NAME and MONGO_DB_URL for your own DB.
+# The password will be saved on CircleCI; here, just keep it as {ENV_MONGO_DB_PASSWORD}.
+```
+
+### Run docker build and tag in your repository
+
+```bash
 docker build -t ims-ecs:v1 .
 docker tag ims-ecs:v1 248679804578.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
 ```
@@ -148,7 +159,7 @@ aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS
 
 ![AWS docker login command](../../assets/images/CircleCI_AWS_Golang/013.png)
 
-Then, push the image to the ECR repository:
+### Then, push the image to the ECR repository
 
 ```bash
 docker push 418741758261.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
@@ -253,7 +264,7 @@ By using CircleCi orbs, we will save massive amounts of time by importing pre-bu
 
 First, setup the AWS/DB env variable in CircleCI context, go to **_Organization Settings_** **_>_** **_Contexts_**, and click Create Context, name it **aws-dev**.
 
-Add the following environment variables:
+### Add the following environment variables
 
 | Name                     | Value                |
 | ------------------------ | -------------------- |
@@ -262,6 +273,8 @@ Add the following environment variables:
 | AWS_DEFAULT_REGION       | ap-northeast-1       |
 | AWS_RESOURCE_NAME_PREFIX | circleci             |
 | ENV_MONGO_DB_PASSWORD    | \<your db password\> |
+
+#### ingore ENV_MONGO_DB_PASSWORD if you are using your own repo
 
 ![CircleCI context environment variables page](../../assets/images/CircleCI_AWS_Golang/023.png)
 
@@ -318,9 +331,9 @@ workflows:
 
 #### Note
 
-Please ref this doc to setup role_arn and role_session for aws-cli/setup
+Please follow below step to setup role_arn and role_session in AWS IAM
 
-[Authenticate jobs with cloud providers](https://circleci.com/docs/openid-connect-tokens/#authenticate-jobs-with-cloud-providers)
+Reference: <a href="https://circleci.com/docs/openid-connect-tokens/#authenticate-jobs-with-cloud-providers" target="_blank">Authenticate jobs with cloud providers</a>
 
 IAM > Identity providers
 
