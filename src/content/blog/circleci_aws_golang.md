@@ -1,5 +1,5 @@
 ﻿---
-title: CircleCI + AWS + Golang
+title: CircleCI to AWS Deployment - Configuring and Deploying a Go Application from Scretch
 author: Johnson Wang
 pubDatetime: 2023-12-19T09:21:21Z
 postSlug: circleci-aws-golang
