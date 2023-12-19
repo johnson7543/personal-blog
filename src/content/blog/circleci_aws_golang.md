@@ -22,7 +22,9 @@ ref to this aritcle for AWS CLI installation:
 
 ---
 
-In this demo, I am using Asia Pacific (Tokyo) -> **ap-northeast-1**
+In this demo, I'll utilize the following repository: <https://github.com/johnson7543/ims.git>.
+
+The AWS region of choice will be Asia Pacific (Tokyo) - **ap-northeast-1**
 
 ## VPC (Virtual Private Cloud)
 
@@ -132,6 +134,8 @@ Name it circleci:
 AWS accounts have unique ID’s. Change 418741758261 in the following command appropriately. After getting the repository name, we can now tag the image accordingly:
 
 ```bash
+git clone https://github.com/johnson7543/ims.git
+cd ims
 docker build -t ims-ecs:v1 .
 docker tag ims-ecs:v1 248679804578.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
 ```
