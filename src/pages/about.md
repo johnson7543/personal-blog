@@ -3,34 +3,64 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+# Johnson YuKai Wang
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+---
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+## Skills Summary
 
-<div>
-  <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+### Languages
 
-## Tech Stack
+- Familiar: Java, Go
+- Experienced: Python, C++, Typescript
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+### Frameworks
 
-## Features
+- Spring Boot, Angular
 
-Here are certain features of this site.
+### Databases
 
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
+- MySQL, PostgreSQL, MongoDB
 
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+### Tools
+
+- Git, Docker, Kubernetes, CircleCI
+
+### Cloud Platforms
+
+- AWS, GCP, Azure, Heroku
+
+---
+
+## Professional Experience
+
+### [DBS Bank](https://www.dbs.com/taiwan/en/default.page) - Taipei, Taiwan
+
+**Software Engineer - Consumer Finance Tech Team** (July 2022 – Present)
+
+- Developed financial systems using Java Spring Boot for Consumer Finance Taiwan API Gateway and Sell/Spend By Installment Engine.
+- Contributed to the Citibank Migration Project, developing web interfaces, implementing caching tables, and archival features.
+- Onboarded encryption service for 20+ microservices, enhancing security.
+- Assisted in analyzing 50+ UAT defects, implemented production incident fixes using Python.
+- Improved code quality by implementing JUnit 5 test cases, increasing test coverage from 0% to 80%.
+- Collaborated on investigating and resolving 20+ production incidents.
+
+### [Shoalter Technology Ltd.](https://www.shoalter.com/) - Taipei, Taiwan (Member of [HKTV](https://www.hktv.com.hk/eng/global/home.htm))
+
+**Software Engineer - Backend/Android Team** (Sept 2021 – July 2022)
+
+- Developed unmanned shops, including e-commerce and stock management systems, using Java Spring Boot and deploying on GKE.
+- Improved SQL query performance and maintained staging environments in AKS.
+- Ensured data security by masking and mocking production customers' sensitive data.
+- Studied Android development and React Native as an App team member.
+
+---
+
+## Education
+
+### [Chung Yuan Christian University](https://www.cycu.edu.tw/eng/) - Sept 2017 - June 2021
+
+#### Bachelor of Computer Science
+
+- Courses: C++, Compilers, Data Structures, Algorithms, Operating Systems, Computer Network
+- Project: [CYCU Assistant](https://github.com/johnson7543/Team4-Project) (Python/MongoDB/Heroku/Dialogflow/Line Bot API)
