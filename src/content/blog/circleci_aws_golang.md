@@ -16,7 +16,7 @@ description: How to use CircleCI to deploy go application to AWS.
 
 First things first, create and activate an AWS Account. Then, install and configure the AWS CLI on your local machine. We will use it to interact with AWS from the command line interface.
 
-You can ref to this article for AWS CLI installation: [AWS CLI Setup](http://localhost:4321/posts/aws-cli-setup)
+You can ref to this article for AWS CLI installation: [AWS CLI Setup](/posts/aws-cli-setup)
 
 In this demo, I'll utilize this [repository](https://github.com/johnson7543/ims.git).
 
