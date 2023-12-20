@@ -1,5 +1,7 @@
 # Johnson Wang's Dev Blog 📄
 
+## Enter my personal blog [here](https://johnson7543.com/)
+
 This project was forked from [AstroPaper](https://github.com/satnaing/astro-paper).
 
 ## 🚀 Project Structure
