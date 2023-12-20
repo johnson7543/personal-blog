@@ -18,11 +18,13 @@ First things first, create and activate an AWS Account. Then, install and config
 
 You can ref to this article for AWS CLI installation: [AWS CLI Setup](https://johnson7543.com/posts/aws-cli-setup)
 
-In this demo, I'll utilize this [repository](https://github.com/johnson7543/ims.git).
+### In this demo
 
-If you want to use my repository for deployment, you need to prepare a MongoDB to connect.
+- I'll utilize this [repository](https://github.com/johnson7543/ims.git). _[OPTIONAL]_ If you want to use my repository for deployment, you need to prepare a MongoDB to connect.
 
-The AWS region of choice will be Asia Pacific (Tokyo) - **ap-northeast-1**
+- You can also use this simple [repo](https://github.com/johnson7543/circleci-ecs) to practice the deployment.
+
+- The AWS region of choice will be Asia Pacific (Tokyo) - **ap-northeast-1**
 
 ## VPC (Virtual Private Cloud)
 
@@ -188,7 +190,7 @@ Now that we have an image in the ECR registry, we need a task definition that wi
           "protocol": "tcp"
         }
       ],
-      "command": ["./ims"],
+      "command": ["./main"],
       "essential": true
     }
   ]
