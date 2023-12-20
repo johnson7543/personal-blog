@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
+import { externalAnchorPlugin } from "./src/utils/external-anchor-plugin.mjs";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
@@ -21,6 +22,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkToc,
       remarkReadingTime,
+      externalAnchorPlugin,
       [
         remarkCollapse,
         {

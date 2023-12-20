@@ -32,7 +32,7 @@ title: "About"
 
 ### Professional Experience
 
-#### <a href="https://www.dbs.com/taiwan/en/default.page" target="_blank">DBS Bank</a> - Taipei, Taiwan
+#### [DBS Bank](https://www.dbs.com/taiwan/en/default.page) - Taipei, Taiwan
 
 **Software Engineer - Consumer Finance Tech Team** (July 2022 – Present)
 
@@ -43,7 +43,7 @@ title: "About"
 - Improved code quality by implementing JUnit 5 test cases, increasing test coverage from 0% to 80%.
 - Collaborated on investigating and resolving 20+ production incidents.
 
-#### <a href="https://www.shoalter.com/" target="_blank">Shoalter Technology Ltd.</a> - Taipei, Taiwan (Member of <a href="https://www.hktv.com.hk/index.html?lang=en_US" target="_blank">HKTV</a>)
+#### [Shoalter Technology Ltd.](https://www.shoalter.com/) - Taipei, Taiwan (Member of [HKTV](https://www.hktv.com.hk/index.html?lang=en_US))
 
 **Software Engineer - Backend/Android Team** (Sept 2021 – July 2022)
 
@@ -56,9 +56,9 @@ title: "About"
 
 ### Education
 
-#### <a href="https://www.cycu.edu.tw/eng/" target="_blank">Chung Yuan Christian University</a> - Sept 2017 - June 2021
+#### [Chung Yuan Christian University](https://www.cycu.edu.tw/eng/) - Sept 2017 - June 2021
 
 ##### Bachelor of Computer Science
 
 - Courses: C++, Compilers, Data Structures, Algorithms, Operating Systems, Computer Network
-- Project: <a href="https://github.com/johnson7543/Team4-Project" target="_blank">CYCU Assistant</a> (Python/MongoDB/Heroku/Dialogflow/Line Bot API)
+- Project: [CYCU Assistant](https://github.com/johnson7543/Team4-Project) (Python/MongoDB/Heroku/Dialogflow/Line Bot API)

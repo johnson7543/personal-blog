@@ -16,9 +16,9 @@ description: How to use CircleCI to deploy go application to AWS.
 
 First things first, create and activate an AWS Account. Then, install and configure the AWS CLI on your local machine. We will use it to interact with AWS from the command line interface.
 
-You can ref to this article for AWS CLI installation: <a href="http://localhost:4321/posts/aws-cli-setup" target="_blank">AWS CLI Setup</a>
+You can ref to this article for AWS CLI installation: [AWS CLI Setup](http://localhost:4321/posts/aws-cli-setup)
 
-In this demo, I'll utilize this <a href="https://github.com/johnson7543/ims.git" target="_blank">repository</a>.
+In this demo, I'll utilize this [repository](https://github.com/johnson7543/ims.git).
 
 If you want to use my repository for deployment, you need to prepare a MongoDB to connect.
 
@@ -333,7 +333,7 @@ workflows:
 
 Please follow below step to setup role_arn and role_session in AWS IAM
 
-Reference: <a href="https://circleci.com/docs/openid-connect-tokens/#authenticate-jobs-with-cloud-providers" target="_blank">Authenticate jobs with cloud providers</a>
+Reference: [Authenticate jobs with cloud providers](https://circleci.com/docs/openid-connect-tokens/#authenticate-jobs-with-cloud-providers)
 
 IAM > Identity providers
 
