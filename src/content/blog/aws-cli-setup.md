@@ -30,7 +30,7 @@ Enter the requested information:
 
 - AWS Access Key ID: Enter the access key ID obtained from the AWS IAM console.
 - AWS Secret Access Key: Enter the secret access key associated with the access key ID.
-- Default region name: Enter the AWS region you want to use by default (e.g., us-east-1, us-west-2, ap-northeast-1).
+- Default region name: Enter the AWS region you want to use by default (e.g., **ap-northeast-1**).
 - Default output format: You can leave this as the default (usually JSON).
 
 you can find the access key ID from here faster:

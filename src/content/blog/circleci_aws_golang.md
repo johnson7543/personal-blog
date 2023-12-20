@@ -24,7 +24,7 @@ You can ref to this article for AWS CLI installation: [AWS CLI Setup](https://jo
 
 - You can also use this simple [repo](https://github.com/johnson7543/circleci-ecs) to practice the deployment.
 
-- The AWS region of choice will be Asia Pacific (Tokyo) - **ap-northeast-1**
+- The AWS region of choice will be Asia Pacific (Tokyo) - **ap-northeast-1**, run the command `aws configure set region ap-northeast-1` to change your region.
 
 ## VPC (Virtual Private Cloud)
 
@@ -264,6 +264,8 @@ From the ECS console go to Clusters > circleci-cluster > circleci-service and vi
 
 By using CircleCi orbs, we will save massive amounts of time by importing pre-built commands, jobs, and executors into our configuration file. This will also reduce the lines of code in our config greatly by eliminating much of the bash scripting required for AWS deployments.
 
+Enter [CircleCI Application](https://app.circleci.com/)
+
 First, setup the AWS/DB env variable in CircleCI context, go to **_Organization Settings_** **_>_** **_Contexts_**, and click Create Context, name it **aws-dev**.
 
 ### Add the following environment variables
@@ -276,7 +278,7 @@ First, setup the AWS/DB env variable in CircleCI context, go to **_Organization 
 | AWS_RESOURCE_NAME_PREFIX | circleci             |
 | ENV_MONGO_DB_PASSWORD    | \<your db password\> |
 
-#### ingore ENV_MONGO_DB_PASSWORD if you are using your own repo
+#### Ingore ENV_MONGO_DB_PASSWORD if you are using your own repo
 
 ![CircleCI context environment variables page](../../assets/images/CircleCI_AWS_Golang/023.png)
 
