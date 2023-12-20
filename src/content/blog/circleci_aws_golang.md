@@ -197,8 +197,6 @@ Now that we have an image in the ECR registry, we need a task definition that wi
 }
 ```
 
-Note: Remember to change the image to the one you pushed to ECR.
-
 Let’s register the task definition from the command line interface with:
 
 ```bash
