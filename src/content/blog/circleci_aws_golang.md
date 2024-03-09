@@ -81,7 +81,7 @@ Go to EC2 Console > Load Balancing > Load Balancers and click Create Load Balanc
 
 ![ELB create button](../../assets/images/CircleCI_AWS_Golang/004.png)
 
-Name it circleci-elb and select internet-facing.
+Name it **circleci-elb-tokyo** and select internet-facing.
 
 Under listeners, use the default listener with a HTTP protocol and port 80.
 
@@ -89,19 +89,17 @@ Under Availability Zone, chose the VPC that was used during cluster creation and
 
 ![ELB create page 1](../../assets/images/CircleCI_AWS_Golang/005.png)
 
+Select your VPC with subnets and create a new security group for ELB.
+
 ![ELB create page 2](../../assets/images/CircleCI_AWS_Golang/006.png)
-
-![ELB create page 3](../../assets/images/CircleCI_AWS_Golang/007.png)
-
-please continue ref to below items to create new security group and target group
-
-### Configure Security Groups
 
 Create a new security group named circleci-elb-tokyo and open up port 80 and source 0.0.0.0/0 so anything from the outside world can access the ELB on port 80.
 
 ![Security Group create page 1](../../assets/images/CircleCI_AWS_Golang/008.png)
 
-### Configure Listeners and Routing
+Create and select the target group
+
+![ELB create page 3](../../assets/images/CircleCI_AWS_Golang/007.png)
 
 Create a new target group name circleci-target-group with HTTP port 80.
 
@@ -117,9 +115,11 @@ aws ec2 authorize-security-group-ingress --group-name circleci-tokyo --protocol 
 
 With these security group rules:
 
-Only port 80 on the ELB is exposed to the outside world.
+1. Only port 80 on the ELB is exposed to the outside world.
 
-Any traffic from the ELB going to a container instance with the circleci-target-group group is allowed.
+2. Only traffic from the ELB going to a container instance with the circleci-target-group group is allowed.
+
+You can check the rule in EC2 -> Security Groups -> circleci-tokyo -> Inbound rules.
 
 ## ECR (Elastic Container Registry)
 
@@ -127,7 +127,7 @@ Create an image repository on ECR by following these instructions.
 
 ![ECR create button](../../assets/images/CircleCI_AWS_Golang/011.png)
 
-Name it circleci:
+Name it **circleci**.
 
 ![ECR create page 1](../../assets/images/CircleCI_AWS_Golang/012.png)
 
@@ -144,13 +144,22 @@ cd ims
 # go to the .env file under the root path
 # update the MONGO_DB_NAME and MONGO_DB_URL for your own DB.
 # The password will be saved on CircleCI; here, just keep it as {ENV_MONGO_DB_PASSWORD}.
+
+
 ```
 
 ### Run docker build and tag in your repository
 
 ```bash
-docker build -t ims-ecs:v1 .
-docker tag ims-ecs:v1 248679804578.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
+# Replace the {your MongoDB password} with your MongoDB password.
+docker build -t ims-ecs:v1 --build-arg ENV_MONGO_DB_PASSWORD={your MongoDB password} .
+docker tag ims-ecs:v1 418741758261.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
+```
+
+```bash
+# If there is no DB password, just run the following command
+docker build -t ims-ecs:v1
+docker tag ims-ecs:v1 418741758261.dkr.ecr.ap-northeast-1.amazonaws.com/circleci:latest
 ```
 
 Retrieves an authentication token from AWS ECR for the specified region and uses it to log in to the specified ECR registry using Docker
@@ -247,6 +256,8 @@ IAM > Roles
 ![ECS create service role 2](../../assets/images/CircleCI_AWS_Golang/018.png)
 
 ![ECS create service role 3](../../assets/images/CircleCI_AWS_Golang/019.png)
+
+Name it **ecsServiceRole**.
 
 ![ECS create service role 4](../../assets/images/CircleCI_AWS_Golang/020.png)
 
@@ -351,20 +362,23 @@ You can find the organization id in Organization Settings:
 
 ![CircleCI organization id](../../assets/images/CircleCI_AWS_Golang/028.png)
 
-After the provider is created, assign required roles to the provider and name it Circleci_orbs_cli_ecr_ecs_role.
+After the provider is created
+
+1. Select **Web identity** and choose `circleci` as the identity provider.
+2. Assign required roles to the provider:
+
+   - AmazonEC2ContainerRegistryFullAccess
+   - AmazonEC2ContainerServiceRole
+
+3. Name it **Circleci_orbs_cli_ecr_ecs_role**.
 
 ![Assign access and name the role](../../assets/images/CircleCI_AWS_Golang/029.png)
-
-Add the following accesses to this role:
-
-- AmazonEC2ContainerRegistryFullAccess
-- AmazonEC2ContainerServiceRole
 
 _I added full access to the role which is not AWS best practice, you should know what permission is not required and don’t add it._
 
 ---
 
-### Now you have all prepared well!
+### Now you have all prepared well 😊
 
 Make some changes to the project and commit to your GitHub.
 
