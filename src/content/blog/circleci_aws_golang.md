@@ -93,7 +93,7 @@ Select your VPC with subnets and create a new security group for ELB.
 
 ![ELB create page 2](../../assets/images/CircleCI_AWS_Golang/006.png)
 
-Create a new security group named circleci-elb-tokyo and open up port 80 and source 0.0.0.0/0 so anything from the outside world can access the ELB on port 80.
+Create a new security group named **circleci-elb-tokyo** and open up All TCP and source 0.0.0.0/0 so anything from the outside world can access the ELB. **Set up for both Inbound and Outbound rules**
 
 ![Security Group create page 1](../../assets/images/CircleCI_AWS_Golang/008.png)
 
